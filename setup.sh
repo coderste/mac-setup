@@ -33,7 +33,7 @@ UPurple='\033[4;35m'      # Purple
 UCyan='\033[4;36m'        # Cyan
 UWhite='\033[4;37m'       # White
 
-Installing Homebrew
+# Installing Homebrew
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
