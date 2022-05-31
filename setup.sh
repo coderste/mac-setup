@@ -84,19 +84,21 @@ done <tools.txt
 # Copy config files to the correct location
 echo "\n"
 echo "${UYellow}Copying config files to correct locations...${NC}"
-cp -fr config/.zshrc ~/
-cp -fr config/.gitconfig ~/
-cp -fr config/.gitignore ~/
-cp -fr config/.aliases ~/
-mkdir -p ~/.aws && cp -fr config/.aws ~/.aws/config
+cp -fr config/.zshrc $HOME
+cp -fr config/.gitconfig $HOME
+cp -fr config/.gitignore $HOME
+cp -fr config/.aliases $HOME
+mkdir -p $HOME/.aws && cp -fr config/.aws $HOME/.aws/config
 echo "${BGreen}Config files copied.${NC}"
 
 # Copy iTerm custom plugins to the correct location
 echo "\n"
-echo "${UYellow}Copying iTerm plugins and themes...${NC}"
+echo "${UYellow}Copying iTerm/Vim plugins and themes...${NC}"
 \cp -R -f oh-my-zsh/plugins/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins
 \cp -R -f oh-my-zsh/plugins/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins
-echo "${BGreen}iTerm Plugins and Themes copied over${NC}"
+\cp -R -f .vim/Vundle.vim $HOME/.vim/bundle
+\cp -R -f .vim/tcomment_vim $HOME/.vim/bundle
+echo "${BGreen}iTerm/Vim Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
 echo "\n"
