@@ -66,7 +66,7 @@ echo "${UYellow}Installing Developer Tools...${NC}"
 
 while IFS='=' read -r name tool
 do 
-    if brew list ${tool} &>/dev/null; then
+    if brew list $tool &>/dev/null; then
         echo "${BCyan}${name} is already installed.${NC}"
     else
         echo "${BWhite}Installing ${name}...${NC}"
