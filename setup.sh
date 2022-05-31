@@ -70,7 +70,7 @@ do
         echo "${BCyan}${name} is already installed.${NC}"
     else
         echo "${BWhite}Installing ${name}...${NC}"
-        brew install ${tool}
+        brew install $tool
         echo "\n"
     fi
 done <tools.txt
