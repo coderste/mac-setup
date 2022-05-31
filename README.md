@@ -62,11 +62,11 @@ I have a personal set-up of 2 directories. One for `work` repos and one for `per
 ```
 code
 |-- personal
-    |-- repo-1
-    |-- repo-2
+|   |-- repo-1
+|   |-- repo-2
 |-- work
-    |-- repo-1
-    |-- repo-2
+|   |-- repo-1
+|   |-- repo-2
 ```
 This structure aligns with my `aliases` for running shortcut commands in the terminal.
 
