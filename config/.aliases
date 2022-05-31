@@ -65,24 +65,3 @@ alias avei='aws-vault exec identity'
 # Get week number
 alias week="date +%V"
 alias weather="curl wttr.in"
-
-# MoJ Custom Commands
-clear-cache() {
-    sudo dscacheutil -flushcache;
-    sudo killall -HUP mDNSResponder;
-    say cache flushed
-}
-
-dd-exec() {
-  CONTAINER=$1
-  shift
-  docker-compose -f $DD_DOCKER_DIR/docker-compose.yml exec ${CONTAINER} "$@"
-}
-
-dd-cache-clear()
-{
-    dd-exec api sh -c "rm -rf var/cache/*"
-    dd-exec frontend sh -c "rm -rf var/cache/*"
-    dd-exec admin sh -c "rm -rf var/cache/*"
-    echo "Cache reset"
-}
