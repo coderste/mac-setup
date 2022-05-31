@@ -96,20 +96,30 @@ echo "\n"
 echo "${UYellow}Copying iTerm/Vim plugins and themes...${NC}"
 \cp -R -f oh-my-zsh/plugins/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins
 \cp -R -f oh-my-zsh/plugins/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins
+
+mkdir -p $HOME/.vim/bundle
 \cp -R -f .vim/Vundle.vim $HOME/.vim/bundle
 \cp -R -f .vim/tcomment_vim $HOME/.vim/bundle
 echo "${BGreen}iTerm/Vim Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
-echo "\n"
-echo "${UYellow}Authenticate with GitHub${NC}"
-gh auth login
+# echo "\n"
+# echo "${UYellow}Authenticate with GitHub${NC}"
+# gh auth login
 
 # Add spacers to dock
+# echo "\n"
+# echo "${UYellow}Adding spacers to Dock${NC}"
+# defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+# defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+# defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+# defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+# killall Dock
+
+# Create Folder
 echo "\n"
-echo "${UYellow}Adding spacers to Dock${NC}"
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
-killall Dock
+echo "${UYellow}Creating directories...${NC}"
+mkdir $HOME/code
+mkdir $HOME/code/work
+mkdir $HOME/code/personal
+echo "${BGreen}Directories created!${NC}"
