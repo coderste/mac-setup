@@ -103,9 +103,9 @@ mkdir -p $HOME/.vim/bundle
 echo "${BGreen}iTerm/Vim Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
-# echo "\n"
-# echo "${UYellow}Authenticate with GitHub${NC}"
-# gh auth login
+echo "\n"
+echo "${UYellow}Authenticate with GitHub${NC}"
+gh auth login
 
 # Add spacers to dock
 # echo "\n"
