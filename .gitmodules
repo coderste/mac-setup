@@ -1,9 +1,9 @@
-[submodule ".vim/Vundle.vim"]
-	path = .vim/Vundle.vim
-	url = git@github.com:VundleVim/Vundle.vim.git
 [submodule "oh-my-zsh/plugins/zsh-autosuggestions"]
 	path = oh-my-zsh/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
 [submodule "oh-my-zsh/plugins/zsh-syntax-highlighting"]
 	path = oh-my-zsh/plugins/zsh-syntax-highlighting
 	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule ".vim/Vundle.vim"]
+	path = .vim/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim.git
