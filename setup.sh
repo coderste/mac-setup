@@ -34,11 +34,18 @@ UCyan='\033[4;36m'        # Cyan
 UWhite='\033[4;37m'       # White
 
 # Installing Homebrew
-echo "${BWhite}Installing Homebrew...${NC}"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo "\n"
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    echo "${BWhite}Installing Homebrew...${NC}"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    echo "${BWhite}Updating Homebrew...${NC}"
+    brew update
+fi
 
 # Install macOS Applications via Homebrew cask
+echo "\n"
 echo "${UYellow}Installing macOS Applications...${NC}"
 
 while IFS='=' read -r app brewInstall
@@ -79,8 +86,8 @@ echo "${BGreen}Config files copied.${NC}"
 # Copy iTerm custom plugins to the correct location
 echo "\n"
 echo "${UYellow}Copying iTerm plugins and themes...${NC}"
-cp -R ~/Documents/mac-setup/oh-my-zsh/plugins/zsh-autosuggestions $ZSH_CUSTOM/plugins
-cp -R ~/Documents/mac-setup/oh-my-zsh/plugins/zsh-syntax-highlighting $ZSH_CUSTOM/plugins
+cp -R ./oh-my-zsh/plugins/zsh-autosuggestions $ZSH_CUSTOM/plugins
+cp -R ./oh-my-zsh/plugins/zsh-syntax-highlighting $ZSH_CUSTOM/plugins
 echo "${BGreen}iTerm Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
