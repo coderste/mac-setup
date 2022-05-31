@@ -81,6 +81,7 @@ echo "\n"
 echo "${UYellow}Copying iTerm plugins and themes...${NC}"
 cp -R ~/Documents/mac-setup/oh-my-zsh/plugins/zsh-autosuggestions $ZSH_CUSTOM/plugins
 cp -R ~/Documents/mac-setup/oh-my-zsh/plugins/zsh-syntax-highlighting $ZSH_CUSTOM/plugins
+echo "${BGreen}iTerm Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
 echo "\n"
