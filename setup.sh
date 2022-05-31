@@ -76,14 +76,13 @@ cp -fr config/.aliases ~/
 mkdir -p ~/.aws && cp -fr config/.aws ~/.aws/config
 echo "${BGreen}Config files copied.${NC}"
 
-# Log into GitHub and add new SSH key is needed
-echo "\n"
-echo "${UYellow}Authenticate with GitHub${NC}"
-gh auth login
-gh repo clone coderste/mac-setup ~/Documents -- --recurse-submodules
-
 # Copy iTerm custom plugins to the correct location
 echo "\n"
 echo "${UYellow}Copying iTerm plugins and themes...${NC}"
 cp -R ~/Documents/mac-setup/oh-my-zsh/plugins/zsh-autosuggestions $ZSH_CUSTOM/plugins
 cp -R ~/Documents/mac-setup/oh-my-zsh/plugins/zsh-syntax-highlighting $ZSH_CUSTOM/plugins
+
+# Log into GitHub and add new SSH key is needed
+echo "\n"
+echo "${UYellow}Authenticate with GitHub${NC}"
+gh auth login
