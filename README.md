@@ -49,7 +49,7 @@ Clone the repo into your `$HOME` directory.
 git clone --recurse-submodules https://github.com/coderste/mac-setup.git
 ```
 
-**NB:** You need `git` installed on the environment to run this set-up because we use submodules the folders are not included when download as ZIP from GitHub. Install Xcode Command Line Tools which will give you access to `git`
+**NB:** You need `git` installed on the environment to run this set-up because we use submodules the folders are not included when downloaded as ZIP from GitHub. Install Xcode Command Line Tools which will give you access to `git`
 
 ### GitHub CLI and more
 
