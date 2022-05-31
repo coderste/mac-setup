@@ -53,6 +53,7 @@ do
     if [[ ! -d /Applications/${app}.app ]]; then
         echo "${BWhite}Installing ${app}...${NC}"
         brew install --cask $brewInstall
+        echo "\n"
     else
         echo "${BCyan}${app} is already installed.${NC}"
     fi
@@ -70,6 +71,7 @@ do
     else
         echo "${BWhite}Installing ${name}...${NC}"
         brew install ${tool}
+        echo "\n"
     fi
 done <tools.txt
 
