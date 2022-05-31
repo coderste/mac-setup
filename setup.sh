@@ -98,6 +98,7 @@ echo "${UYellow}Copying iTerm/Vim plugins and themes...${NC}"
 \cp -R -f oh-my-zsh/plugins/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins
 
 mkdir -p $HOME/.vim/bundle
+\cp .vim/.vimrc $HOME
 \cp -R -f .vim/Vundle.vim $HOME/.vim/bundle
 \cp -R -f .vim/tcomment_vim $HOME/.vim/bundle
 echo "${BGreen}iTerm/Vim Plugins and Themes copied over${NC}"
