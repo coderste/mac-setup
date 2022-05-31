@@ -55,6 +55,21 @@ git clone --recurse-submodules https://github.com/coderste/mac-setup.git
 
 We install and authenticate with the [GitHub CLI](https://github.com/cli/cli) towards the end of the set-up script. This gives us the option to generate a new SSH pubic/private key for the machine we are on and then it will upload the public key for us to our GitHub. This just makes the process of generating a new public/private easier and even less work for us.
 
+
+### Directories
+
+I have a personal set-up of 2 directories. One for `work` repos and one for `personal` repos. The structure is like so:
+```
+code
+|-- personal
+    |-- repo-1
+    |-- repo-2
+|-- work
+    |-- repo-1
+    |-- repo-2
+```
+This structure aligns with my `aliases` for running shortcut commands in the terminal.
+
 ## Screenshots of the enviroment
 ### Terminal Screenshot
 ![Terminal Screenshot](screenshots/terminal-ss.png)
