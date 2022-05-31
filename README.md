@@ -18,3 +18,10 @@ NAME FOR THE TEMRINAL=homebrew install name
 For us to be able to download the `zsh` plugins without manually doing so we have to authenticate with the `GitHub CLI` we downloaded as part of the homebrew install. 
 
 Once this is installed we run the authenticate command to authenticate with GitHub and add a newly generate SSH key to our GitHub account. This will allow us to download the submodules within the repo which can then be copied over to the `oh-my-zsh/custom/plugins` directory
+
+
+### Terminal Screenshot
+![Terminal Screenshot](screenshots/terminal-ss.png)
+
+### VS Code Screenshot
+![Terminal Screenshot](screenshots/vs-code-ss.png)
