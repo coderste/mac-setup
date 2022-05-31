@@ -1,4 +1,4 @@
-# Setting up a Macbook Pro my way
+# Setting up a Macbook Pro 
 
 [Installation](#installation)
 
