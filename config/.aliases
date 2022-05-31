@@ -1,0 +1,88 @@
+# Open VS Code in current directory
+alias code="code ."
+
+# Shortcuts & MoJ
+export dev=~/code/
+export personal=~/code/personal
+export work=~/code/work
+export digideps=~/code/work/opg-digideps
+export serve=~/code/work/serve-opg
+alias back="cd -"
+
+# Make commands
+alias msdl="make stop && make debug && make logs"
+alias mssl="make stop && make start && make logs"
+alias mss="make stop && make start"
+alias msl="make start && make logs"
+alias ms="make start"
+alias md="make debug"
+alias mr="make restart"
+alias ml="make logs"
+alias mstop="make stop"
+alias mint="make integration-test"
+
+# Suffix
+alias -s {cs,html,js,ts,css,scss,md,json}=code
+
+# Laravel
+alias pa="php artisan"
+
+# Docker
+COMPOSE="docker-compose"
+DOCKER="docker"
+alias dcu="$COMPOSE up"
+alias dcb="$COMPOSE build"
+alias dcd="$COMPOSE down"
+alias db="$DOCKER build ."
+alias dl="$DOCKER pull"
+alias dps="$DOCKER ps"
+alias de="$DOCKER exec"
+alias dc="$DOCKER"
+alias dstop="$DOCKER stop $(docker ps -aq)"
+
+# Kubernetes
+KUBE="kubectl"
+alias kapply="$KUBE apply -f"
+alias kgservice="$KUBE get service"
+alias kgpod="$KUBE get pod"
+
+# System
+alias update="brew update && brew upgrade && brew cleanup && brew doctor && pscli update"
+alias sudo="sudo "
+
+# Git
+alias gamend="git commit --amend 'S'"
+
+# MoJ Specific Git
+alias gcdp="git gcdp"
+alias gbdp="git gbcdp"
+alias gbser="git gbcser"
+alias gcser="git gbcser"
+
+# AWS
+alias avei='aws-vault exec identity'
+
+# Get week number
+alias week="date +%V"
+alias weather="curl wttr.in"
+
+# MoJ Custom Commands
+clear-cache() {
+    sudo dscacheutil -flushcache;
+    sudo killall -HUP mDNSResponder;
+    say cache flushed
+}
+
+dd-exec() {
+  CONTAINER=$1
+  shift
+  docker-compose -f $DD_DOCKER_DIR/docker-compose.yml exec ${CONTAINER} "$@"
+}
+
+dd-cache-clear()
+{
+    dd-exec api sh -c "rm -rf var/cache/*"
+    dd-exec frontend sh -c "rm -rf var/cache/*"
+    dd-exec admin sh -c "rm -rf var/cache/*"
+    echo "Cache reset"
+}

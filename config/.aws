@@ -1,0 +1,2 @@
+[profile identity]
+mfa_serial=arn:aws:iam::631181914621:mfa/stephen.hinett

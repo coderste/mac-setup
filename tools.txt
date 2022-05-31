@@ -1,0 +1,8 @@
+Git=git
+ZSH=zsh
+Golang=go
+PHP=php
+GitHub CLI=gh
+Node=node@18
+Composer=composer
+Tig=tig

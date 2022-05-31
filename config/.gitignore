@@ -1,0 +1,11 @@
+# Node
+npm-debug.log
+
+# Mac
+.DS_Store
+
+# Intellij
+.idea/
+
+# PHP Fixer
+.php-cs-fixer.cache
