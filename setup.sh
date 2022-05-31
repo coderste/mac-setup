@@ -33,15 +33,17 @@ UPurple='\033[4;35m'      # Purple
 UCyan='\033[4;36m'        # Cyan
 UWhite='\033[4;37m'       # White
 
-# Installing Homebrew
+Installing Homebrew
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
     echo "${BWhite}Installing Homebrew...${NC}"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     echo "${BWhite}Updating Homebrew...${NC}"
-    brew update
+    brew update && brew upgrade
 fi
 
 # Install macOS Applications via Homebrew cask
@@ -59,19 +61,19 @@ do
     fi
 done <apps.txt
 
-echo "\n"
 
 # Install Developer Tools via Homebrew
+echo "\n"
 echo "${UYellow}Installing Developer Tools...${NC}"
 
 while IFS='=' read -r name tool
 do 
-    if brew list $tool &>/dev/null; then
-        echo "${BCyan}${name} is already installed.${NC}"
-    else
+    if ! brew list $tool &> /dev/null; then
         echo "${BWhite}Installing ${name}...${NC}"
-        brew install $tool
+        brew install $tool </dev/null
         echo "\n"
+    else
+        echo "${BCyan}${name} is already installed.${NC}"
     fi
 done <tools.txt
 
@@ -88,8 +90,8 @@ echo "${BGreen}Config files copied.${NC}"
 # Copy iTerm custom plugins to the correct location
 echo "\n"
 echo "${UYellow}Copying iTerm plugins and themes...${NC}"
-cp -R ./oh-my-zsh/plugins/zsh-autosuggestions $ZSH_CUSTOM/plugins
-cp -R ./oh-my-zsh/plugins/zsh-syntax-highlighting $ZSH_CUSTOM/plugins
+\cp -R -f oh-my-zsh/plugins/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins
+\cp -R -f oh-my-zsh/plugins/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins
 echo "${BGreen}iTerm Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
