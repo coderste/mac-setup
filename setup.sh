@@ -66,7 +66,7 @@ done <apps.txt
 echo "\n"
 echo "${UYellow}Installing Developer Tools...${NC}"
 
-if [[! -d $HOME/.oh-my-zsh]]; then
+if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
