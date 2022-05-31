@@ -99,8 +99,8 @@ echo "${UYellow}Copying iTerm/Vim plugins and themes...${NC}"
 
 mkdir -p $HOME/.vim/bundle
 \cp .vim/.vimrc $HOME
-\cp -R -f .vim/Vundle.vim $HOME/.vim/bundle
-\cp -R -f .vim/tcomment_vim $HOME/.vim/bundle
+\cp -R -f .vim/bundle/Vundle.vim $HOME/.vim/bundle
+\cp -R -f .vim/bundle/tcomment_vim $HOME/.vim/bundle
 echo "${BGreen}iTerm/Vim Plugins and Themes copied over${NC}"
 
 # Log into GitHub and add new SSH key is needed
