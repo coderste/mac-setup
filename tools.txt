@@ -6,3 +6,4 @@ GitHub CLI=gh
 Node=node@18
 Composer=composer
 Tig=tig
+PHP Code Snigger=php-code-sniffer
