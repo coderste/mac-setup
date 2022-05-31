@@ -94,3 +94,12 @@ echo "${BGreen}iTerm Plugins and Themes copied over${NC}"
 echo "\n"
 echo "${UYellow}Authenticate with GitHub${NC}"
 gh auth login
+
+# Add spacers to dock
+echo "\n"
+echo "${UYellow}Adding spacers to Dock${NC}"
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
+killall Dock
