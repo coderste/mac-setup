@@ -65,6 +65,7 @@ done <apps.txt
 # Install Developer Tools via Homebrew
 echo "\n"
 echo "${UYellow}Installing Developer Tools...${NC}"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 while IFS='=' read -r name tool
 do 
