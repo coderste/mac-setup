@@ -16,10 +16,10 @@ alias mss="make stop && make start"
 alias msl="make start && make logs"
 alias ms="make start"
 alias md="make debug"
-alias mr="make restart"
 alias ml="make logs"
 alias mstop="make stop"
 alias mint="make integration-test"
+alias mrdf="make reset-database reset-fixtures"
 
 # Suffix
 alias -s {cs,html,js,ts,css,scss,md,json}=code
@@ -55,9 +55,10 @@ alias gamend="git commit --amend 'S'"
 
 # MoJ Specific Git
 alias gcdp="git gcdp"
-alias gbdp="git gbcdp"
-alias gbser="git gbcser"
-alias gcser="git gbcser"
+alias gbdp="git checkout main && git gbdp"
+alias gbdpd="git gbdpd"
+alias gbser="git checkout master && git gbser"
+alias gcser="git gcser"
 
 # AWS
 alias avei='aws-vault exec identity'

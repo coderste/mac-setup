@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 export PATH="/usr/local/bin:${PATH}"
 
+# Golang
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
