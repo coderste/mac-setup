@@ -7,3 +7,4 @@ Node=node@18
 Composer=composer
 Tig=tig
 PHP Code Sniffer=php-code-sniffer
+ 
