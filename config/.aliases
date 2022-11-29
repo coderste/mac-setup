@@ -47,7 +47,7 @@ alias kgservice="$KUBE get service"
 alias kgpod="$KUBE get pod"
 
 # System
-alias update="brew update && brew upgrade && brew cleanup && brew doctor && pscli update"
+alias update="brew update && brew upgrade && brew cleanup && brew doctor"
 alias sudo="sudo "
 
 # Git
