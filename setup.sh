@@ -124,3 +124,10 @@ mkdir $HOME/code
 mkdir $HOME/code/work
 mkdir $HOME/code/personal
 echo "${BGreen}Directories created!${NC}"
+
+# Todo list
+echo "\n"
+echo "${UPurple}- Add SSH key to GitHub"
+echo "- Add Jira search to Google Chrome"
+echo "- Import Chrome Bookmarks"
+echo "${NC}"
