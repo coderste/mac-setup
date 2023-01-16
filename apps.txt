@@ -1,4 +1,5 @@
 Google Chrome=google-chrome
+Firefox=firefox
 Slack=slack
 Alfred 4=alfred
 iTerm=iterm2

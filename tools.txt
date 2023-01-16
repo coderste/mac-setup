@@ -12,3 +12,4 @@ AWS Vault=aws-vault
 Terraform=terraform
 GitHub CLI=gh
 AWS Cli=awscli
+Nodejs=node
