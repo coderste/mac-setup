@@ -8,6 +8,12 @@ The `initial-setup.sh` does about 90% of the work. The rest of the work requires
 
 All the apps and tools are installed using [Homebrew](https://brew.sh/) so this is the first thing installed in the set-up script.
 
+### Font
+
+We use the [Dank Mono Font](https://philpl.gumroad.com/l/dank-mono) but due to it's licensing we can't push to this repo therefore we have to install manually. Other than that everything else can be installed via the set-up script.
+
+### Set Up
+
 `apps.txt` and `tools.txt` are pretty self-explanatory in that the `app.txt` will install the macOS Applications using Homebrew flag `--cask` and the `tools.txt` will install just normal development tools wthout the `--cask` flag.
 
 ```
