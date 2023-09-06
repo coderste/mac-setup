@@ -4,15 +4,11 @@
     signingkey = 5BE66B9402D18339
 [core]
     excludesFile = ~/.gitignore
+    editor = /usr/bin/vim
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
-[alias]
-    gcdp = "!bt() { git checkout DDPB-$1; }; bt"
-    gbdp = "!bt() { git checkout -b DDPB-$1; }; bt"
-    gbser = "!bt() { git checkout -b SER-$1; }; bt"
-    gcser = "!bt() { git checkout SER-$1; }; bt"
 [commit]
     gpgsign = true

@@ -34,32 +34,32 @@ UCyan='\033[4;36m'        # Cyan
 UWhite='\033[4;37m'       # White
 
 # Installing Homebrew
-which -s brew
-if [[ $? != 0 ]] ; then
-    # Install Homebrew
-    echo "${BWhite}Installing Homebrew...${NC}"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    echo "${BWhite}Updating Homebrew...${NC}"
-    brew update && brew upgrade
-fi
+# which -s brew
+# if [[ $? != 0 ]] ; then
+#     # Install Homebrew
+#     echo "${BWhite}Installing Homebrew...${NC}"
+#     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+#     eval "$(/opt/homebrew/bin/brew shellenv)"
+# else
+#     echo "${BWhite}Updating Homebrew...${NC}"
+#     brew update && brew upgrade
+# fi
 
 # Install macOS Applications via Homebrew cask
-echo "\n"
-echo "${UYellow}Installing macOS Applications...${NC}"
+# echo "\n"
+# echo "${UYellow}Installing macOS Applications...${NC}"
 
-while IFS='=' read -r app brewInstall
-do 
-    if [[ ! -d /Applications/${app}.app ]]; then
-        echo "${BWhite}Installing ${app}...${NC}"
-        brew install --cask $brewInstall
-        echo "\n"
-    else
-        echo "${BCyan}${app} is already installed.${NC}"
-    fi
-done <apps.txt
+# while IFS='=' read -r app brewInstall
+# do 
+#     if [[ ! -d /Applications/${app}.app ]]; then
+#         echo "${BWhite}Installing ${app}...${NC}"
+#         brew install --cask $brewInstall
+#         echo "\n"
+#     else
+#         echo "${BCyan}${app} is already installed.${NC}"
+#     fi
+# done <apps.txt
 
 
 # Install Developer Tools via Homebrew

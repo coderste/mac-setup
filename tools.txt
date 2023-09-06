@@ -1,15 +1,11 @@
-Git=git
 ZSH=zsh
 Golang=go
 PHP=php
 GitHub CLI=gh
-Node=node@18
 Composer=composer
 Tig=tig
 PHP Code Sniffer=php-code-sniffer
 Yarn=yarn
 AWS Vault=aws-vault
 Terraform=terraform
-GitHub CLI=gh
 AWS Cli=awscli
-Nodejs=node

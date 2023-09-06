@@ -1,6 +1,5 @@
 Google Chrome=google-chrome
-Firefox=firefox
-Slack=slack
+Teams=microsoft-teams
 Alfred 4=alfred
 iTerm=iterm2
 Visual Studio Code=visual-studio-code

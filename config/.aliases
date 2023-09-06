@@ -5,8 +5,6 @@ alias code="code ."
 export dev=~/code/
 export personal=~/code/personal
 export work=~/code/work
-export digideps=~/code/work/opg-digideps
-export serve=~/code/work/serve-opg
 alias back="cd -"
 
 # Make commands
@@ -33,11 +31,12 @@ DOCKER="docker"
 alias dcu="$COMPOSE up"
 alias dcb="$COMPOSE build"
 alias dcd="$COMPOSE down"
+alias dcdrm="$COMPOSE down --remove-orphans --volumes"
 alias db="$DOCKER build ."
 alias dl="$DOCKER pull"
 alias dps="$DOCKER ps"
-alias de="$DOCKER exec"
-alias dc="$DOCKER"
+alias de='_exec() { $DOCKER exec -it "$1" sh; }_exec'
+alias dc="$COMPOSE"
 alias dstop="$DOCKER stop $(docker ps -aq)"
 
 # Kubernetes
@@ -52,13 +51,6 @@ alias sudo="sudo "
 
 # Git
 alias gamend="git commit --amend 'S'"
-
-# MoJ Specific Git
-alias gcdp="git gcdp"
-alias gbdp="git checkout main && git gbdp"
-alias gbdpd="git gbdpd"
-alias gbser="git checkout master && git gbser"
-alias gcser="git gcser"
 
 # AWS
 alias avei='aws-vault exec identity'
