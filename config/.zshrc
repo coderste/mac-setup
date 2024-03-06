@@ -1,13 +1,17 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="/usr/local/bin:${PATH}"
+# export PATH="/usr/local/bin:${PATH}"
 
 # Golang
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export NVM_DIR="$HOME/.nvm"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# Composer
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,7 +81,6 @@ esac
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    jira
     git
     git-auto-fetch
     zsh-autosuggestions

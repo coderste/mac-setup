@@ -2,6 +2,7 @@ syntax on
 set number
 set nowrap
 set encoding=utf8
+set mouse=a
 
 """" Start Vundle configuration
 set nocompatible

@@ -10,3 +10,4 @@ AWS Vault=aws-vault
 Terraform=terraform
 AWS Cli=awscli
 JQ=jq
+PNPM=pnpm

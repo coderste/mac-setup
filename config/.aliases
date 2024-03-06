@@ -1,7 +1,7 @@
 # Open VS Code in current directory
 alias code="code ."
 
-# Shortcuts & MoJ
+# Shortcuts
 export dev=~/code/
 export personal=~/code/personal
 export work=~/code/work

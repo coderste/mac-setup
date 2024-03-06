@@ -8,3 +8,6 @@ GPG Keychain=gpg-suite
 1Password=1password
 Discord=discord
 Spotify=spotify
+Sequel Ace=sequel-ace
+Herd=herd
+Postman=postman
