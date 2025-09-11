@@ -11,3 +11,4 @@ Terraform=terraform
 AWS Cli=awscli
 JQ=jq
 PNPM=pnpm
+Git=git

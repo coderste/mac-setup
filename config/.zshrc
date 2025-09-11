@@ -1,96 +1,135 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH="/usr/local/bin:${PATH}"
+# ================================
+# Environment Variables
+# ================================
 
-# Golang
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export NVM_DIR="$HOME/.nvm"
-
-# Path to your oh-my-zsh installation.
+# Oh My Zsh configuration
 export ZSH="$HOME/.oh-my-zsh"
-
-# Composer
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="apple"
 DEFAULT_USER="$USER"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
+# Disable auto-title for better terminal control
 DISABLE_AUTO_TITLE="true"
-case $TERM in
-    xterm*)
-        precmd () {print -Pn "\e]0;%~\a"}
-        ;;
-esac
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# History settings
+HIST_STAMPS="yyyy-mm-dd"
+HISTSIZE=10000
+SAVEHIST=10000
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# ================================
+# PATH Configuration
+# ================================
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+# Reset to system defaults for consistency
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# Homebrew (handles both Intel and Apple Silicon)
+if [[ -d "/opt/homebrew" ]]; then
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+elif [[ -d "/usr/local/Homebrew" ]]; then
+    export PATH="/usr/local/bin:$PATH"
+fi
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# User-specific paths
+export PATH="$HOME/.local/bin:$PATH"
+
+# Development tools
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+# Golang configuration
+if command -v brew >/dev/null 2>&1 && brew list golang >/dev/null 2>&1; then
+    export GOROOT="$(brew --prefix golang)/libexec"
+    export GOPATH="$HOME/go"
+    export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+fi
+
+# Perl (if installed via Homebrew)
+if [[ -d "/opt/homebrew/opt/perl/bin" ]]; then
+    export PATH="/opt/homebrew/opt/perl/bin:$PATH"
+fi
+
+# PNPM (if using specific version)
+if [[ -d "/opt/homebrew/opt/pnpm@8/bin" ]]; then
+    export PATH="/opt/homebrew/opt/pnpm@8/bin:$PATH"
+fi
+
+# ================================
+# Oh My Zsh Plugins
+# ================================
+
 plugins=(
     git
     git-auto-fetch
     zsh-autosuggestions
     zsh-syntax-highlighting
-    common-aliases
-    copyfile
 )
 
-# Oh My Zsh
+# ================================
+# Terminal Configuration
+# ================================
+
+# Dynamic terminal title based on current directory
+case $TERM in
+    xterm*|screen*|tmux*)
+        precmd() { print -Pn "\e]0;%~\a" }
+        ;;
+esac
+
+# ================================
+# Load Oh My Zsh
+# ================================
+
 source $ZSH/oh-my-zsh.sh
 
-# My Aliases
-source ~/.aliases
+# ================================
+# Node Version Manager (NVM)
+# ================================
+
+export NVM_DIR="$HOME/.nvm"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+    source "$NVM_DIR/nvm.sh"
+fi
+if [[ -s "$NVM_DIR/bash_completion" ]]; then
+    source "$NVM_DIR/bash_completion"
+fi
+
+# ================================
+# Custom Aliases and Functions
+# ================================
+
+# Source custom aliases if file exists
+if [[ -f "$HOME/.aliases" ]]; then
+    source "$HOME/.aliases"
+fi
+
+# Vim/Neovim aliases
+alias vim='nvim'
+alias vi='nvim'
+
+# VSCode
+alias vs="code ."
+
+# ================================
+# Development Environment Setup
+# ================================
+
+# Homebrew environment (if not already set)
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# ================================
+# Performance Optimizations
+# ================================
+
+# Skip global compinit for faster startup
+skip_global_compinit=1
+
+# Lazy load functions for better performance
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi

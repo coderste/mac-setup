@@ -1,60 +1,237 @@
-# Open VS Code in current directory
-alias code="code ."
+# ================================
+# Directory Navigation
+# ================================
 
-# Shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+# Directory shortcuts based on your structure
 export dev=~/code/
 export personal=~/code/personal
 export work=~/code/work
-alias back="cd -"
 
-# Make commands
-alias msdl="make stop && make debug && make logs"
-alias mssl="make stop && make start && make logs"
-alias mss="make stop && make start"
-alias msl="make start && make logs"
-alias ms="make start"
-alias md="make debug"
-alias ml="make logs"
-alias mstop="make stop"
-alias mint="make integration-test"
-alias mrdf="make reset-database reset-fixtures"
+# ================================
+# File Operations
+# ================================
 
-# Suffix
-alias -s {cs,html,js,ts,css,scss,md,json}=code
+# Enhanced ls commands
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ls='ls -G'  # Enable colors on macOS
 
-# Laravel
-alias pa="php artisan"
+# File operations with confirmations
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
 
-# Docker
-COMPOSE="docker-compose"
-DOCKER="docker"
-alias dcu="$COMPOSE up"
-alias dcb="$COMPOSE build"
-alias dcd="$COMPOSE down"
-alias dcdrm="$COMPOSE down --remove-orphans --volumes"
-alias db="$DOCKER build ."
-alias dl="$DOCKER pull"
-alias dps="$DOCKER ps"
-alias de='_exec() { $DOCKER exec -it "$1" sh; }_exec'
-alias dc="$COMPOSE"
-alias dstop="$DOCKER stop $(docker ps -aq)"
+# Create directories with parents
+alias mkdir='mkdir -p'
 
-# Kubernetes
-KUBE="kubectl"
-alias kapply="$KUBE apply -f"
-alias kgservice="$KUBE get service"
-alias kgpod="$KUBE get pod"
+# ================================
+# Git Shortcuts
+# ================================
 
-# System
-alias update="brew update && brew upgrade && brew cleanup && brew doctor"
-alias sudo="sudo "
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gp='git push'
+alias gpl='git pull'
+alias gco='git checkout'
+alias gb='git branch'
+alias gd='git diff'
+alias gl='git log --oneline'
+alias glog='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
-# Git
-alias gamend="git commit --amend 'S'"
+# ================================
+# Development Tools
+# ================================
 
-# AWS
-alias avei='aws-vault exec identity'
+# Docker shortcuts
+alias d='docker'
+alias dc='docker compose'
+alias dps='docker ps'
+alias di='docker images'
 
-# Get week number
-alias week="date +%V"
-alias weather="curl wttr.in"
+# Laravel/PHP shortcuts
+alias art='php artisan'
+alias tinker='php artisan tinker'
+alias migrate='php artisan migrate'
+alias serve='php artisan serve'
+
+# Composer shortcuts
+alias comp='composer'
+alias ci='composer install'
+alias cu='composer update'
+alias cr='composer require'
+alias cda='composer dump-autoload'
+
+# Node/NPM/PNPM shortcuts
+alias ni='npm install'
+alias nr='npm run'
+alias ns='npm start'
+alias nt='npm test'
+alias nrd='npm run dev'
+alias nrb='npm run build'
+
+# PNPM equivalents
+alias pi='pnpm install'
+alias pr='pnpm run'
+alias ps='pnpm start'
+alias pt='pnpm test'
+alias prd='pnpm run dev'
+alias prb='pnpm run build'
+
+# Yarn shortcuts
+alias ys='yarn start'
+alias yi='yarn install'
+alias ya='yarn add'
+alias yr='yarn run'
+
+# ================================
+# System Utilities
+# ================================
+
+# System information
+alias cpu='top -o cpu'
+alias mem='top -o mem'
+alias ports='netstat -tulanp'
+
+# Network utilities
+alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias localip='ipconfig getifaddr en0'
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# File size and disk usage
+alias du='du -kh'
+alias df='df -kTh'
+
+# ================================
+# Quick Edits
+# ================================
+
+# Edit common config files
+alias zshrc='nvim ~/.zshrc'
+alias aliases='nvim ~/.aliases'
+alias gitconfig='nvim ~/.gitconfig'
+alias nvimconfig='nvim ~/.config/nvim'
+
+# ================================
+# macOS Specific
+# ================================
+
+# Show/hide hidden files in Finder
+alias showfiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
+alias hidefiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
+
+# Flush DNS cache
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+
+# Lock screen
+alias lock='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
+
+# ================================
+# Productivity
+# ================================
+
+# Quick reload of shell
+alias reload='source ~/.zshrc'
+
+# Quick directory listing with tree (if installed)
+if command -v tree >/dev/null 2>&1; then
+    alias tree='tree -C'
+    alias t1='tree -L 1'
+    alias t2='tree -L 2'
+    alias t3='tree -L 3'
+fi
+
+# Weather (requires curl)
+alias weather='curl wttr.in'
+
+# ================================
+# Fun Utilities
+# ================================
+
+# Generate a random password
+alias genpass='openssl rand -base64 32'
+
+# Get current timestamp
+alias timestamp='date +%s'
+
+# ================================
+# Custom Functions
+# ================================
+
+# Create directory and cd into it
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Docker exec into container with bash
+dce() {
+    if [[ $# -eq 1 ]]; then
+        docker compose exec -it "$1" bash
+    else
+        echo "Usage: dce <container_name>"
+    fi
+}
+
+# Work-specific Docker orchestration
+unifyup() {
+    echo "Bringing up entanet-shared-docker..."
+    docker compose -f "$work/entanet-shared-docker/docker-compose.yml" up -d
+    echo "Bringing up auth..."
+    docker compose -f "$work/auth/docker-compose.yml" up -d
+    echo "Bringing up unify-service-portal..."
+    docker compose -f "$work/usp/docker-compose.yml" up -d
+    echo "All containers are up!"
+}
+
+unifydown() {
+    echo "Bringing down unify-service-portal..."
+    docker compose -f "$work/usp/docker-compose.yml" down
+    echo "Bringing down auth..."
+    docker compose -f "$work/auth/docker-compose.yml" down
+    echo "Bringing down entanet-shared-docker..."
+    docker compose -f "$work/entanet-shared-docker/docker-compose.yml" down
+    echo "All containers are down!"
+}
+
+# Extract various archive formats
+extract() {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1     ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar e $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xf $1      ;;
+            *.tbz2)      tar xjf $1     ;;
+            *.tgz)       tar xzf $1     ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)     echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
+
+# Find process by name
+findproc() {
+    ps aux | grep -i "$1" | grep -v grep
+}
+
+# Quick git commit and push
+gcp() {
+    git add .
+    git commit -m "$1"
+    git push
+}
