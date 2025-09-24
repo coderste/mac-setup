@@ -1,6 +1,6 @@
+# My macOS setup script
 #!/bin/bash
 
-# Mac Development Environment Setup Script
 # Exit on any error
 set -e
 

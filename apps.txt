@@ -9,5 +9,4 @@ GPG Keychain=gpg-suite
 Discord=discord
 Spotify=spotify
 Sequel Ace=sequel-ace
-Herd=herd
 Postman=postman
