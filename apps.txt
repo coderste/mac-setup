@@ -1,4 +1,4 @@
-Google Chrome=google-chrome
+Firefox=firefox
 Teams=microsoft-teams
 Alfred 4=alfred
 iTerm=iterm2
